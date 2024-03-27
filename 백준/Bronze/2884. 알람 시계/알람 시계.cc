@@ -13,11 +13,9 @@ int main()
 	{
 		result_h--;
 		result_m += 60;
-		if (result_h < 0)
-			result_h += 24;
 	}
+	if (result_h < 0)
+		result_h += 24;
 
 	cout << result_h<< " " << result_m << endl;
-
-
 }

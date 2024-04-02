@@ -16,10 +16,9 @@ int main()
 	}
 
 	int max=0;
-	int size = N * (N - 1) * (N - 2);
-	for (int j = 0; j < N; j++)
+	for (int j = 0; j < N-2; j++)
 	{
-		for (int k = j+1; k < N; k++)
+		for (int k = j+1; k < N-1; k++)
 		{
 			for (int l = k + 1; l < N; l++)
 			{

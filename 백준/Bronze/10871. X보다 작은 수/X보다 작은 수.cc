@@ -1,22 +1,15 @@
 #include<iostream>
-#include<vector>
-using namespace std;
-
 int main()
 {
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
-    int N, X;
-    cin >> N >> X;
-    vector<int> A(N);
-    for(int i=0;i<N;i++)
-    {
-        cin >> A[i];
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    int n, x;
+    std::cin >> n >> x;
+    int* a = new int[n];
+    for (int i = 0; i < n; i++)
+        std::cin >> a[i];
+    for (int i = 0; i < n; i++) {
+        if (a[i] < x) std::cout << a[i] << ' ';
     }
-    for(int j=0;j<N;j++)
-    {
-        if(A[j]<X)
-            cout << A[j] << ' ';
-    }
+    delete[] a;
 }

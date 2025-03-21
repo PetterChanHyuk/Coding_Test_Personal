@@ -1,23 +1,21 @@
 #include<iostream>
 using namespace std;
 
-int cnt;
-
-void d(int n) {
-	if (n == 0) { cnt++; }
-	if (n - 1 >= 0) d(n - 1);
-	if (n - 2 >= 0) d(n - 2);
-	if (n - 3 >= 0) d(n - 3);
-}
+int d[20];
 
 int main() {
-	int n;
-	int test;
-	cin >> test;
-	for (int i = 0; i < test; i++) {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+
+	d[1] = 1; d[2] = 2; d[3] = 4;
+	for (int i = 4; i < 11; i++) {
+		d[i] = d[i - 1] + d[i - 2] + d[i - 3];
+	}
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
 		cin >> n;
-		d(n);
-		cout << cnt << '\n';
-		cnt = 0;
+		cout << d[n] << '\n';
 	}
 }

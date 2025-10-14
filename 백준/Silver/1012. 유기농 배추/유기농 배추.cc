@@ -3,36 +3,43 @@
 #include<utility>
 #include<algorithm>
 using namespace std;
+#define X first
+#define Y second
 
 int board[51][51];
-int vis[51][51];
-int dx[4] = { 1,0,-1,0 };
-int dy[4] = { 0,1,0,-1 };
-int cnt;
-int main() {
-	int t, m, n, k;
+bool vis[51][51];
+int n, m, k;
+int T;
 
-	cin >> t;
-	while (t--) {
-		cin >> m >> n >> k;
+int dx[4] = { 0,1,0,-1 };
+int dy[4] = { 1,0,-1,0 };
+int cnt;
+
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cin >> T;
+	while (T--) {
+		cin >> n >> m >> k;
 		for (int i = 0; i < k; i++) {
 			int x, y;
-			cin >> y >> x;
+			cin >> x >> y;
 			board[x][y] = 1;
 		}
+		
 		queue<pair<int, int>> q;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				if (board[i][j] == 0 || vis[i][j] != 0) continue;
-				else {
+				if (vis[i][j]!=1 && board[i][j]==1) {
 					q.push({ i,j });
 					vis[i][j] = 1;
 					cnt++;
 					while (!q.empty()) {
 						auto cur = q.front(); q.pop();
 						for (int dir = 0; dir < 4; dir++) {
-							int nx = cur.first + dx[dir];
-							int ny = cur.second + dy[dir];
+							int nx = cur.X + dx[dir];
+							int ny = cur.Y + dy[dir];
+
 							if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
 							if (board[nx][ny] != 1 || vis[nx][ny]) continue;
 							q.push({ nx,ny });
@@ -49,6 +56,5 @@ int main() {
 			cnt = 0;
 		}
 	}
-	
 	return 0;
 }

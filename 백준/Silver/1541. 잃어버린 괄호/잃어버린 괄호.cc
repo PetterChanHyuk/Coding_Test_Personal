@@ -33,7 +33,7 @@ int main() {
 		part = part.substr(pos + 1);
 	}
 
-	for (int i = 1; i < (int)str.size(); i++) {
+	for (int i = 1; i < str.size(); i++) {
 		part = str[i];
 		int temp = 0;
 
